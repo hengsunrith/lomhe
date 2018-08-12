@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <br>
+    <section class="">
+      <form action="">
+        <div class="form-group">
+          <input type="submit" value="Delete" class="btn btn-primary">
+        </div>
+      </form>
+    </section>
+
+    <section id="photos">
+      {% load static %}
+      <img src="{% static "static_page/images/01.jpg" %}" alt="">
+      <img src="{% static "static_page/images/02.jpg" %}" alt="">
+      <img src="{% static "static_page/images/03.jpg" %}" alt="">
+      <img src="{% static "static_page/images/04.jpg" %}" alt="">
+      <img src="{% static "static_page/images/05.jpg" %}" alt="">
+      <img src="{% static "static_page/images/06.jpg" %}" alt="">
+    </section>
+
+    <section class="comment-section">
+        <div class="comment user-comment">
+            <div class="info">
+                <a href="#">Amanda Quick</a>
+                <span>4 hours ago</span>
+            </div>
+
+            <a class="avatar" href="#">
+                <img src="http://i63.tinypic.com/2r3ec1t.png" width="35" alt="Profile Avatar" title="Amanda Quick" />
+            </a>
+
+            <p>Suspendisse gravida sem?</p>
+
+        </div>
+
+        <div class="comment author-comment">
+
+            <div class="info">
+                <a href="#">Jack Smith</a>
+                <span>3 hours ago</span>
+            </div>
+
+            <a class="avatar" href="#">
+                <img src="http://i68.tinypic.com/2jfesz8.jpg" width="35" alt="Profile Avatar" title="Jack Smith" />
+            </a>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse gravida sem sit amet molestie portitor.</p>
+
+        </div>
+
+        <div class="comment user-comment">
+
+            <div class="info">
+                <a href="#">Bradley Jones</a>
+                <span>1 hour ago</span>
+            </div>
+
+            <a class="avatar" href="#">
+                <img src="http://i68.tinypic.com/2j0ywcx.jpg" width="35" alt="Profile Avatar" title="Bradley Jones" />
+            </a>
+
+            <p>Suspendisse gravida sem sit amet molestie portitor?</p>
+
+        </div>
+
+        <div class="comment author-comment">
+
+            <div class="info">
+                <a href="#">Jack Smith</a>
+                <span>1 hour ago</span>
+            </div>
+
+            <a class="avatar" href="#">
+                <img src="http://i68.tinypic.com/2jfesz8.jpg" width="35" alt="Profile Avatar" title="Jack Smith" />
+            </a>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisee gravida sem sit amet molestie porttitor.</p>
+
+        </div>
+
+        <div class="write-new">
+            <form action="#" method="post">
+                <textarea placeholder="Write your comment here" name="comment"></textarea>
+
+                <div>
+                    <img src="http://i68.tinypic.com/2j0ywcx.jpg" width="35" alt="Profile of Bradley Jones" title="Bradley Jones" />
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+  </div>
+{% endblock %}
