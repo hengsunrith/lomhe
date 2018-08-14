@@ -5,13 +5,25 @@
     {% if error_message %}
       {{ error_message }}
     {% endif %}
-    <form action="" class="px-4 py-3">
-      {% csrf_token %}
-      <div class="form-group">
-        {{ form.as_p }}
-      </div>
-      <input type="submit" class="btn btn-primary" value="Sign In" />
-    </form>
 
+    <div class="col-md-6 mx-auto">
+        <!-- form card login -->
+          <div class="card rounded-0">
+            <div class="card-header">
+              <h3 class="mb-0">Sign up</h3>
+            </div>
+            <div class="card-body">
+              <form method="post" class="px-4 py-3">
+                {% csrf_token %}
+                  <div class="form-group">
+                    {{ form.as_p }}
+            </div>
+            <input type="submit" class="btn btn-primary float-right" value="Sign up" />
+            </form>
+          </div>
+        <!--/card-block-->
+      </div>
+      <!-- /form card login -->
+    </div>
   </div>
 {% endblock %}

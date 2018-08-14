@@ -18,6 +18,14 @@
 
     </ul>
     <div class="my-2 my-lg-0">
+      {% if user.is_authenticated %}
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.username }}</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+            </div>
+          </div>
+      {% else %}
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="{% url 'sign_in' %}">Sign in<span class="sr-only">(current)</span></a>
@@ -27,6 +35,7 @@
             <a class="nav-link" href="{% url 'sign_up' %}">Sign up<span class="sr-only">(current)</span></a>
           </li>
         </ul>
+      {% endif %}
     </div>
   </div>
 </nav>

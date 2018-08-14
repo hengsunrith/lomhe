@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 
 
 class LoginUserForm(forms.ModelForm):
-  username = forms.CharField(widget=forms.TextInput)
-  password = forms.CharField(widget=forms.PasswordInput)
+  username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+  password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
   class Meta:
     model = User
@@ -12,10 +12,10 @@ class LoginUserForm(forms.ModelForm):
 
 
 class RegisterUserForm(forms.ModelForm):
-  username = forms.CharField(widget=forms.TextInput)
-  email = forms.CharField(widget=forms.EmailInput)
-  password = forms.CharField(widget=forms.PasswordInput)
-  confirm_password = forms.CharField(widget=forms.PasswordInput)
+  username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+  email = forms.CharField(widget=forms.EmailInput(attrs={'class': 'form-control'}))
+  password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+  confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
   class Meta:
     model = User
@@ -23,10 +23,15 @@ class RegisterUserForm(forms.ModelForm):
 
 
 class ForgetPwdForm(forms.ModelForm):
-  old_password = forms.CharField(widget=forms.PasswordInput)
-  password = forms.CharField(widget=forms.PasswordInput)
-  confirm_password = forms.CharField(widget=forms.PasswordInput)
+  password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+  confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
   class Meta:
     model = User
     fields = ['password']
+
+
+class PostForm(forms.ModelForm):
+  body = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control'}))
+  file = forms.FileField(widget=forms.FileInput(attrs={'class': 'form-control'}))
+

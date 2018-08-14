@@ -2,29 +2,26 @@
 
 {% block content %}
   <div class="container">
-  <div class="row">
-    <div class="col-sm-10 offset-sm-1 text-center">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="text-center">
-                  <h3><i class="fa fa-lock fa-4x"></i></h3>
-                  <h2 class="text-center">Forgot Password?</h2>
-                  <p>You can reset your password here.</p>
-                  <div class="panel-body">
-                    {% if error_message %}
-                      {{ error_message }}
-                    {% endif %}
-                    <form action="" id="register-form" class="form">
-                      {% csrf_token %}
-                      {{ form.as_p }}
-                      <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="Reset Password" type="submit">
-                    </form>
-
-                  </div>
-                </div>
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+          <!-- form card login -->
+            <div class="card rounded-0">
+              <div class="card-header">
+                <h3 class="mb-0">Forget your password?</h3>
               </div>
+              <div class="card-body">
+                <form class="px-4 py-3">
+                  {% csrf_token %}
+                    <div class="form-group">
+                      {{ form.as_p }}
+              </div>
+              <input type="submit" class="btn btn-primary float-right" value="Reset" />
+              </form>
             </div>
-          </div>
+          <!--/card-block-->
+        </div>
+        <!-- /form card login -->
+      </div>
+    </div>
   </div>
-</div>
 {% endblock %}
