@@ -3,6 +3,7 @@
 {% block content %}
     <br/>
     <div class="container">
+      {% if user.is_authenticated %}
       <form action="{% url 'home' %}">
         <div class="form-group">
           <label for="exampleFormControlTextarea1"><strong>New Post:</strong></label>
@@ -15,6 +16,9 @@
           <input type="submit" value="Post" class="btn btn-primary">
         </div>
       </form>
+      {% else %}
+        <p class="text-center">Please sign in / sign out to post</p>
+      {% endif %}
       <hr/>
       <!-- Page Heading -->
 

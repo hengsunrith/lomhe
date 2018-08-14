@@ -19,12 +19,9 @@
     </ul>
     <div class="my-2 my-lg-0">
       {% if user.is_authenticated %}
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.username }}</button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
-            </div>
-          </div>
+      <div class="navbar-nav">
+        <i class="fas fa-sign-out-alt"></i><a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+      </div>
       {% else %}
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">

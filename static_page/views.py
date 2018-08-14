@@ -1,5 +1,6 @@
-from django.shortcuts import render_to_response, render, redirect
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib import messages
 from django.views import generic
 from django.contrib.auth import authenticate, login, logout
 from static_page.forms import RegisterUserForm, LoginUserForm, ForgetPwdForm
@@ -18,6 +19,7 @@ def logout_view(request):
     logout(request)
     return redirect('/')
 
+
 class LoginView(generic.CreateView):
   form_class = LoginUserForm
   template_name = 'static_page/registrations/sign_in.html'
@@ -32,9 +34,12 @@ class LoginView(generic.CreateView):
       user = authenticate(request, username=username, password=password)
       if user is not None:
           login(request, user)
+          messages.success(request, 'Sign in Successfully!!')
           return redirect('/')
       else:
+          messages.error(request, 'Please sign in again :( ...')
           return redirect('/sign_in/')
+
 
 class RegisterView(generic.CreateView):
   form_class = RegisterUserForm
@@ -45,23 +50,21 @@ class RegisterView(generic.CreateView):
     return render(request, self.template_name, {'form': form})
 
   def post(self, request):
-    if request.method == 'POST':
-        form = RegisterUserForm(request.POST)
-        if form.is_valid():
+      if request.method == 'POST':
+          form = RegisterUserForm(request.POST)
+          if form.is_valid():
             user = form.save(commit=False)
-            user.is_active = False
+            user.set_password(form.cleaned_data['password'])
             user.save()
-            username = request.POST['username']
-            password = request.POST['password']
-            user = authenticate(request, username=username, password=password)
-            if user is not None:
-              login(request, user)
-              return redirect('/')
-            else:
-              return redirect('/sign_up/')
-    else:
-        form = RegisterUserForm()
-    return render(request, 'static_page/registrations/sign_up.html', {'form': form})
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('/')
+      else:
+          form = RegisterUserForm()
+      return render(request, 'static_page/registrations/sign_up.html', {'form': form})
+
 
 class ForgetPwdView(generic.CreateView):
   form_class = ForgetPwdForm

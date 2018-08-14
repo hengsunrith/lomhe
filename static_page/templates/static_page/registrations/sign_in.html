@@ -3,9 +3,7 @@
 {% block content %}
   <div class="container">
     <div class="row">
-      {% if error_message %}
-        {{ error_message }}
-      {% endif %}
+
       <div class="col-md-6 mx-auto">
         <!-- form card login -->
           <div class="card rounded-0">
@@ -15,14 +13,15 @@
             <div class="card-body">
               <form class="px-4 py-3" method="POST">
                 {% csrf_token %}
-                  <div class="form-group">
-                    {{ form.as_p }}
-            </div>
-            <input type="submit" class="btn btn-primary float-right" value="Sign In" />
+                <div class="form-group">
+                  {{ form.as_p }}
+                  <input type="submit" class="btn btn-primary" value="Sign In" />
+                </div>
+
             </form>
 
-            <a class="dropdown-item" href="{% url 'sign_up' %}">New around here? Sign up</a>
-            <a class="dropdown-item" href="{% url 'forget_pwd' %}">Forgot password?</a><br>
+            <a class="dropdown-item text-center" href="{% url 'forget_pwd' %}">Forgot password?</a><br>
+            <a class="dropdown-item text-center" href="{% url 'sign_up' %}">New around here? Sign up</a>
           </div>
         <!--/card-block-->
       </div>
