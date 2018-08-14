@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6edbee79-cd30-4370-a539-98aa9609df2b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/lomhe/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/lomhe/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_page/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/static_page/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_page/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/static_page/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_page/templates/static_page/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/static_page/templates/static_page/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_page/templates/static_page/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/static_page/templates/static_page/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_page/templates/static_page/registrations/sign_in.html" beforeDir="false" afterPath="$PROJECT_DIR$/static_page/templates/static_page/registrations/sign_in.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/static_page/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static_page/templates/static_page/registrations/sign_up.html" beforeDir="false" afterPath="$PROJECT_DIR$/static_page/templates/static_page/registrations/sign_up.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -106,8 +100,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static_page/templates/static_page/registrations/sign_up.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="67" selection-start-line="20" selection-start-column="67" selection-end-line="20" selection-end-column="67" />
+            <state relative-caret-position="45">
+              <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -247,12 +241,12 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16986156" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16986156" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.32970297" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Terminal" sideWeight="0.49946752" visible="true" weight="0.32970297" />
+      <window_info anchor="bottom" id="Event Log" sideWeight="0.5005325" side_tool="true" weight="0.32970297" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -352,8 +346,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static_page/templates/static_page/registrations/sign_up.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="67" selection-start-line="20" selection-start-column="67" selection-end-line="20" selection-end-column="67" />
+        <state relative-caret-position="45">
+          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
         </state>
       </provider>
     </entry>
