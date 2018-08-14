@@ -4,9 +4,9 @@ from django.core.exceptions import ValidationError
 
 
 class LoginUserForm(forms.ModelForm):
-  username = forms.CharField(label=False, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'username'}))
-  password = forms.CharField(label=False, widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'password'}))
-  remember_me = forms.BooleanField(required=False, widget=forms.CheckboxInput)
+  username = forms.CharField(label='User Name:', widget=forms.TextInput(attrs={'class': 'form-control'}))
+  password = forms.CharField(label='Password:', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+  remember_me = forms.BooleanField(label='Remember me:', required=False, widget=forms.CheckboxInput)
 
   class Meta:
     model = User
@@ -14,10 +14,12 @@ class LoginUserForm(forms.ModelForm):
 
 
 class RegisterUserForm(forms.ModelForm):
-  username = forms.CharField(label=False, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'username'}))
-  email = forms.CharField(label=False,  widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'email'}))
-  password = forms.CharField(label=False,  widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'password'}))
-  password2 = forms.CharField(label=False, widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'comfirm password'}))
+  # first_name = forms.CharField(label=False, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'first name'}))
+  # last_name = forms.CharField(label=False, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'last name'}))
+  username = forms.CharField(label='User Name:', widget=forms.TextInput(attrs={'class': 'form-control'}))
+  email = forms.CharField(label='Email Address:',  widget=forms.EmailInput(attrs={'class': 'form-control'}))
+  password = forms.CharField(label='Password:',  widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+  password2 = forms.CharField(label='Confirm Password:', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
   class Meta:
     model = User

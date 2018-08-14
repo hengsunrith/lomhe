@@ -29,16 +29,20 @@ class LoginView(generic.CreateView):
     return render(request, self.template_name, {'form': form})
 
   def post(self, request):
-      username = request.POST['username']
-      password = request.POST['password']
-      user = authenticate(request, username=username, password=password)
-      if user is not None:
+    if request.method == 'POST':
+      form = LoginUserForm(request.POST)
+      if form.is_valid():
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
           login(request, user)
-          messages.success(request, 'Sign in Successfully!!')
+          # messages.success(request, 'Sign in Successfully!!')
           return redirect('/')
-      else:
-          messages.error(request, 'Please sign in again :( ...')
-          return redirect('/sign_in/')
+    else:
+      # messages.error(request, 'Please sign in again :( ...')
+      form = LoginUserForm()
+    return render(request, 'static_page/registrations/sign_in.html', {'form': form})
 
 
 class RegisterView(generic.CreateView):
