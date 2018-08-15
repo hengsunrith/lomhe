@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
 
-class LoginUserForm(forms.ModelForm):
+class LoginUserForm(forms.Form):
   username = forms.CharField(label='User Name:', widget=forms.TextInput(attrs={'class': 'form-control'}))
   password = forms.CharField(label='Password:', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
   remember_me = forms.BooleanField(label='Remember me:', required=False, widget=forms.CheckboxInput)
@@ -12,12 +12,9 @@ class LoginUserForm(forms.ModelForm):
     model = User
     fields = ['username', 'password']
 
-
 class RegisterUserForm(forms.ModelForm):
-  # first_name = forms.CharField(label=False, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'first name'}))
-  # last_name = forms.CharField(label=False, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'last name'}))
   username = forms.CharField(label='User Name:', widget=forms.TextInput(attrs={'class': 'form-control'}))
-  email = forms.CharField(label='Email Address:',  widget=forms.EmailInput(attrs={'class': 'form-control'}))
+  email = forms.EmailField(label='Email Address:',  widget=forms.EmailInput(attrs={'class': 'form-control'}))
   password = forms.CharField(label='Password:',  widget=forms.PasswordInput(attrs={'class': 'form-control'}))
   password2 = forms.CharField(label='Confirm Password:', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 

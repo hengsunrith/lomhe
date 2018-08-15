@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.contrib import messages
+from django.contrib.auth.models import User
 from django.views import generic
 from django.contrib.auth import authenticate, login, logout
 from static_page.forms import RegisterUserForm, LoginUserForm, ForgetPwdForm
-
+from django.contrib import messages
 
 def home(request):
   return render(request, 'static_page/home.html', {})
@@ -28,19 +27,31 @@ class LoginView(generic.CreateView):
     form = self.form_class(None)
     return render(request, self.template_name, {'form': form})
 
+  def dispatch(self, *args, **kwargs):
+    if self.request.user.is_authenticated:
+      return redirect('/')
+    return super().dispatch(*args, **kwargs)
+
   def post(self, request):
     if request.method == 'POST':
       form = LoginUserForm(request.POST)
       if form.is_valid():
         username = form.cleaned_data.get('username')
         password = form.cleaned_data.get('password')
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-          login(request, user)
-          # messages.success(request, 'Sign in Successfully!!')
-          return redirect('/')
+        try:
+          user = User.objects.get(username=username)
+          if user.check_password(password):
+            username = user.username
+            user = authenticate(request, username=username, password=password)
+            login(request, user)
+            messages.success(request, "Welcome")
+            return redirect('/')
+          else:
+            messages.error(request, "Password not match")
+            return redirect('/sign_in/')
+        except User.DoesNotExist:
+          redirect('/sign_up/')
     else:
-      # messages.error(request, 'Please sign in again :( ...')
       form = LoginUserForm()
     return render(request, 'static_page/registrations/sign_in.html', {'form': form})
 
@@ -68,6 +79,11 @@ class RegisterView(generic.CreateView):
       else:
           form = RegisterUserForm()
       return render(request, 'static_page/registrations/sign_up.html', {'form': form})
+
+  def dispatch(self, *args, **kwargs):
+    if self.request.user.is_authenticated:
+      return redirect('/')
+    return super().dispatch(*args, **kwargs)
 
 
 class ForgetPwdView(generic.CreateView):

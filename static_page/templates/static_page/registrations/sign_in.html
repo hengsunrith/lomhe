@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load widget_tweaks %}
+
 {% block content %}
   <div class="container">
     <div class="row">
@@ -11,7 +13,6 @@
               <h3 class="mb-0">Sign in</h3>
             </div>
             <div class="card-body">
-              {% load widget_tweaks %}
               <form class="px-4 py-3" method="POST" novalidate>
                 {% csrf_token %}
 
